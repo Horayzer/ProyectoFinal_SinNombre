@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="79b0d06808304d9bbc5af5a0248f34f8" Name="Diagram1">
+        <EntityTypeShape EntityType="ballenitaModel.CategoriaEquipo" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ballenitaModel.Entrenador" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ballenitaModel.Jugador" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ballenitaModel.JugadorPartido" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ballenitaModel.Partido" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ballenitaModel.Patrocinador" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <AssociationConnector Association="ballenitaModel.FK__Entrenado__ID_Ca__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="ballenitaModel.FK__Jugador__ID_Cate__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="ballenitaModel.FK__Partido__ID_Equi__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="ballenitaModel.FK__Patrocina__ID_Ca__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="ballenitaModel.FK__JugadorPa__ID_Ju__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="ballenitaModel.FK__JugadorPa__ID_Pa__534D60F1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

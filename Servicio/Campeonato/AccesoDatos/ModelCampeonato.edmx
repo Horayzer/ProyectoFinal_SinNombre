@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CampeonatoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categorias">
+          <Key>
+            <PropertyRef Name="idCategoria" />
+          </Key>
+          <Property Name="idCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idJugador" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="nchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Director_Tecnico">
+          <Key>
+            <PropertyRef Name="id_Director" />
+          </Key>
+          <Property Name="id_Director" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_Categoria" Type="int" />
+          <Property Name="nombre" Type="nchar" MaxLength="100" />
+          <Property Name="apellido" Type="nchar" MaxLength="100" />
+          <Property Name="nacionalidad" Type="nchar" MaxLength="100" />
+          <Property Name="titulosGanados" Type="int" />
+          <Property Name="victorias" Type="int" />
+          <Property Name="derrotas" Type="int" />
+          <Property Name="empates" Type="int" />
+          <Property Name="foto_url" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Estadistica">
+          <Key>
+            <PropertyRef Name="idEstadistica" />
+          </Key>
+          <Property Name="idEstadistica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idJugador" Type="int" Nullable="false" />
+          <Property Name="idTemporada" Type="int" Nullable="false" />
+          <Property Name="partidosJugados" Type="int" Nullable="false" />
+          <Property Name="goles" Type="int" Nullable="false" />
+          <Property Name="asistencias" Type="int" Nullable="false" />
+          <Property Name="tarjetasAmarillas" Type="int" Nullable="false" />
+          <Property Name="tarjetasRojas" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Info_Equipo">
+          <Key>
+            <PropertyRef Name="idEquipo" />
+          </Key>
+          <Property Name="idEquipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="direccionEstadio" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="entrenador" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="añoFundacion" Type="int" Nullable="false" />
+          <Property Name="capitan" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="titulosGanados" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Jugadores">
+          <Key>
+            <PropertyRef Name="idJugador" />
+          </Key>
+          <Property Name="idJugador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idEstadistica" Type="int" />
+          <Property Name="nombre" Type="nchar" MaxLength="100" />
+          <Property Name="apellido" Type="nchar" MaxLength="100" />
+          <Property Name="edad" Type="int" />
+          <Property Name="numero_camiseta" Type="int" />
+          <Property Name="posicion" Type="nchar" MaxLength="100" />
+          <Property Name="foto_url" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Temporada">
+          <Key>
+            <PropertyRef Name="idTemporada" />
+          </Key>
+          <Property Name="idTemporada" Type="int" Nullable="false" />
+          <Property Name="idEstadistica" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="nchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Categorias_Jugadores">
+          <End Role="Jugadores" Type="Self.Jugadores" Multiplicity="1" />
+          <End Role="Categorias" Type="Self.Categorias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jugadores">
+              <PropertyRef Name="idJugador" />
+            </Principal>
+            <Dependent Role="Categorias">
+              <PropertyRef Name="idJugador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Director_Tecnico_Categorias">
+          <End Role="Categorias" Type="Self.Categorias" Multiplicity="0..1" />
+          <End Role="Director_Tecnico" Type="Self.Director_Tecnico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorias">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="Director_Tecnico">
+              <PropertyRef Name="id_Categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estadistica_Temporada">
+          <End Role="Temporada" Type="Self.Temporada" Multiplicity="1" />
+          <End Role="Estadistica" Type="Self.Estadistica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Temporada">
+              <PropertyRef Name="idTemporada" />
+            </Principal>
+            <Dependent Role="Estadistica">
+              <PropertyRef Name="idTemporada" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Jugadores_Estadistica">
+          <End Role="Estadistica" Type="Self.Estadistica" Multiplicity="0..1" />
+          <End Role="Jugadores" Type="Self.Jugadores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estadistica">
+              <PropertyRef Name="idEstadistica" />
+            </Principal>
+            <Dependent Role="Jugadores">
+              <PropertyRef Name="idEstadistica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CampeonatoModelStoreContainer">
+          <EntitySet Name="Categorias" EntityType="Self.Categorias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Director_Tecnico" EntityType="Self.Director_Tecnico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estadistica" EntityType="Self.Estadistica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Info_Equipo" EntityType="Self.Info_Equipo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Jugadores" EntityType="Self.Jugadores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Temporada" EntityType="Self.Temporada" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Categorias_Jugadores" Association="Self.FK_Categorias_Jugadores">
+            <End Role="Jugadores" EntitySet="Jugadores" />
+            <End Role="Categorias" EntitySet="Categorias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Director_Tecnico_Categorias" Association="Self.FK_Director_Tecnico_Categorias">
+            <End Role="Categorias" EntitySet="Categorias" />
+            <End Role="Director_Tecnico" EntitySet="Director_Tecnico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estadistica_Temporada" Association="Self.FK_Estadistica_Temporada">
+            <End Role="Temporada" EntitySet="Temporada" />
+            <End Role="Estadistica" EntitySet="Estadistica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Jugadores_Estadistica" Association="Self.FK_Jugadores_Estadistica">
+            <End Role="Estadistica" EntitySet="Estadistica" />
+            <End Role="Jugadores" EntitySet="Jugadores" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CampeonatoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categorias">
+          <Key>
+            <PropertyRef Name="idCategoria" />
+          </Key>
+          <Property Name="idCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idJugador" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Jugadores" Relationship="Self.FK_Categorias_Jugadores" FromRole="Categorias" ToRole="Jugadores" />
+          <NavigationProperty Name="Director_Tecnico" Relationship="Self.FK_Director_Tecnico_Categorias" FromRole="Categorias" ToRole="Director_Tecnico" />
+        </EntityType>
+        <EntityType Name="Director_Tecnico">
+          <Key>
+            <PropertyRef Name="id_Director" />
+          </Key>
+          <Property Name="id_Director" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_Categoria" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="apellido" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="nacionalidad" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="titulosGanados" Type="Int32" />
+          <Property Name="victorias" Type="Int32" />
+          <Property Name="derrotas" Type="Int32" />
+          <Property Name="empates" Type="Int32" />
+          <Property Name="foto_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Categorias" Relationship="Self.FK_Director_Tecnico_Categorias" FromRole="Director_Tecnico" ToRole="Categorias" />
+        </EntityType>
+        <EntityType Name="Estadistica">
+          <Key>
+            <PropertyRef Name="idEstadistica" />
+          </Key>
+          <Property Name="idEstadistica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idJugador" Type="Int32" Nullable="false" />
+          <Property Name="idTemporada" Type="Int32" Nullable="false" />
+          <Property Name="partidosJugados" Type="Int32" Nullable="false" />
+          <Property Name="goles" Type="Int32" Nullable="false" />
+          <Property Name="asistencias" Type="Int32" Nullable="false" />
+          <Property Name="tarjetasAmarillas" Type="Int32" Nullable="false" />
+          <Property Name="tarjetasRojas" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Temporada" Relationship="Self.FK_Estadistica_Temporada" FromRole="Estadistica" ToRole="Temporada" />
+          <NavigationProperty Name="Jugadores" Relationship="Self.FK_Jugadores_Estadistica" FromRole="Estadistica" ToRole="Jugadores" />
+        </EntityType>
+        <EntityType Name="Info_Equipo">
+          <Key>
+            <PropertyRef Name="idEquipo" />
+          </Key>
+          <Property Name="idEquipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="direccionEstadio" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="entrenador" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="añoFundacion" Type="Int32" Nullable="false" />
+          <Property Name="capitan" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="titulosGanados" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Jugadores">
+          <Key>
+            <PropertyRef Name="idJugador" />
+          </Key>
+          <Property Name="idJugador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idEstadistica" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="apellido" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="edad" Type="Int32" />
+          <Property Name="numero_camiseta" Type="Int32" />
+          <Property Name="posicion" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="foto_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Categorias" Relationship="Self.FK_Categorias_Jugadores" FromRole="Jugadores" ToRole="Categorias" />
+          <NavigationProperty Name="Estadistica" Relationship="Self.FK_Jugadores_Estadistica" FromRole="Jugadores" ToRole="Estadistica" />
+        </EntityType>
+        <EntityType Name="Temporada">
+          <Key>
+            <PropertyRef Name="idTemporada" />
+          </Key>
+          <Property Name="idTemporada" Type="Int32" Nullable="false" />
+          <Property Name="idEstadistica" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Estadistica" Relationship="Self.FK_Estadistica_Temporada" FromRole="Temporada" ToRole="Estadistica" />
+        </EntityType>
+        <Association Name="FK_Categorias_Jugadores">
+          <End Role="Jugadores" Type="Self.Jugadores" Multiplicity="1" />
+          <End Role="Categorias" Type="Self.Categorias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jugadores">
+              <PropertyRef Name="idJugador" />
+            </Principal>
+            <Dependent Role="Categorias">
+              <PropertyRef Name="idJugador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Director_Tecnico_Categorias">
+          <End Role="Categorias" Type="Self.Categorias" Multiplicity="0..1" />
+          <End Role="Director_Tecnico" Type="Self.Director_Tecnico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorias">
+              <PropertyRef Name="idCategoria" />
+            </Principal>
+            <Dependent Role="Director_Tecnico">
+              <PropertyRef Name="id_Categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Estadistica_Temporada">
+          <End Role="Temporada" Type="Self.Temporada" Multiplicity="1" />
+          <End Role="Estadistica" Type="Self.Estadistica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Temporada">
+              <PropertyRef Name="idTemporada" />
+            </Principal>
+            <Dependent Role="Estadistica">
+              <PropertyRef Name="idTemporada" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Jugadores_Estadistica">
+          <End Role="Estadistica" Type="Self.Estadistica" Multiplicity="0..1" />
+          <End Role="Jugadores" Type="Self.Jugadores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estadistica">
+              <PropertyRef Name="idEstadistica" />
+            </Principal>
+            <Dependent Role="Jugadores">
+              <PropertyRef Name="idEstadistica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CampeonatoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categorias" EntityType="Self.Categorias" />
+          <EntitySet Name="Director_Tecnico" EntityType="Self.Director_Tecnico" />
+          <EntitySet Name="Estadistica" EntityType="Self.Estadistica" />
+          <EntitySet Name="Info_Equipo" EntityType="Self.Info_Equipo" />
+          <EntitySet Name="Jugadores" EntityType="Self.Jugadores" />
+          <EntitySet Name="Temporada" EntityType="Self.Temporada" />
+          <AssociationSet Name="FK_Categorias_Jugadores" Association="Self.FK_Categorias_Jugadores">
+            <End Role="Jugadores" EntitySet="Jugadores" />
+            <End Role="Categorias" EntitySet="Categorias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Director_Tecnico_Categorias" Association="Self.FK_Director_Tecnico_Categorias">
+            <End Role="Categorias" EntitySet="Categorias" />
+            <End Role="Director_Tecnico" EntitySet="Director_Tecnico" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Estadistica_Temporada" Association="Self.FK_Estadistica_Temporada">
+            <End Role="Temporada" EntitySet="Temporada" />
+            <End Role="Estadistica" EntitySet="Estadistica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Jugadores_Estadistica" Association="Self.FK_Jugadores_Estadistica">
+            <End Role="Estadistica" EntitySet="Estadistica" />
+            <End Role="Jugadores" EntitySet="Jugadores" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CampeonatoModelStoreContainer" CdmEntityContainer="CampeonatoEntities">
+          <EntitySetMapping Name="Categorias">
+            <EntityTypeMapping TypeName="CampeonatoModel.Categorias">
+              <MappingFragment StoreEntitySet="Categorias">
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+                <ScalarProperty Name="idJugador" ColumnName="idJugador" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Director_Tecnico">
+            <EntityTypeMapping TypeName="CampeonatoModel.Director_Tecnico">
+              <MappingFragment StoreEntitySet="Director_Tecnico">
+                <ScalarProperty Name="id_Director" ColumnName="id_Director" />
+                <ScalarProperty Name="id_Categoria" ColumnName="id_Categoria" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+                <ScalarProperty Name="titulosGanados" ColumnName="titulosGanados" />
+                <ScalarProperty Name="victorias" ColumnName="victorias" />
+                <ScalarProperty Name="derrotas" ColumnName="derrotas" />
+                <ScalarProperty Name="empates" ColumnName="empates" />
+                <ScalarProperty Name="foto_url" ColumnName="foto_url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estadistica">
+            <EntityTypeMapping TypeName="CampeonatoModel.Estadistica">
+              <MappingFragment StoreEntitySet="Estadistica">
+                <ScalarProperty Name="idEstadistica" ColumnName="idEstadistica" />
+                <ScalarProperty Name="idJugador" ColumnName="idJugador" />
+                <ScalarProperty Name="idTemporada" ColumnName="idTemporada" />
+                <ScalarProperty Name="partidosJugados" ColumnName="partidosJugados" />
+                <ScalarProperty Name="goles" ColumnName="goles" />
+                <ScalarProperty Name="asistencias" ColumnName="asistencias" />
+                <ScalarProperty Name="tarjetasAmarillas" ColumnName="tarjetasAmarillas" />
+                <ScalarProperty Name="tarjetasRojas" ColumnName="tarjetasRojas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Info_Equipo">
+            <EntityTypeMapping TypeName="CampeonatoModel.Info_Equipo">
+              <MappingFragment StoreEntitySet="Info_Equipo">
+                <ScalarProperty Name="idEquipo" ColumnName="idEquipo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="direccionEstadio" ColumnName="direccionEstadio" />
+                <ScalarProperty Name="entrenador" ColumnName="entrenador" />
+                <ScalarProperty Name="añoFundacion" ColumnName="añoFundacion" />
+                <ScalarProperty Name="capitan" ColumnName="capitan" />
+                <ScalarProperty Name="titulosGanados" ColumnName="titulosGanados" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jugadores">
+            <EntityTypeMapping TypeName="CampeonatoModel.Jugadores">
+              <MappingFragment StoreEntitySet="Jugadores">
+                <ScalarProperty Name="idJugador" ColumnName="idJugador" />
+                <ScalarProperty Name="idEstadistica" ColumnName="idEstadistica" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="edad" ColumnName="edad" />
+                <ScalarProperty Name="numero_camiseta" ColumnName="numero_camiseta" />
+                <ScalarProperty Name="posicion" ColumnName="posicion" />
+                <ScalarProperty Name="foto_url" ColumnName="foto_url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Temporada">
+            <EntityTypeMapping TypeName="CampeonatoModel.Temporada">
+              <MappingFragment StoreEntitySet="Temporada">
+                <ScalarProperty Name="idTemporada" ColumnName="idTemporada" />
+                <ScalarProperty Name="idEstadistica" ColumnName="idEstadistica" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

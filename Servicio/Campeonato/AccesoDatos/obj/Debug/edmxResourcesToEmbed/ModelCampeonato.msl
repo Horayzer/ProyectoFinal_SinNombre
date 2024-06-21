@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CampeonatoModelStoreContainer" CdmEntityContainer="CampeonatoEntities">
+    <EntitySetMapping Name="Categorias">
+      <EntityTypeMapping TypeName="CampeonatoModel.Categorias">
+        <MappingFragment StoreEntitySet="Categorias">
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="idJugador" ColumnName="idJugador" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Director_Tecnico">
+      <EntityTypeMapping TypeName="CampeonatoModel.Director_Tecnico">
+        <MappingFragment StoreEntitySet="Director_Tecnico">
+          <ScalarProperty Name="id_Director" ColumnName="id_Director" />
+          <ScalarProperty Name="id_Categoria" ColumnName="id_Categoria" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+          <ScalarProperty Name="titulosGanados" ColumnName="titulosGanados" />
+          <ScalarProperty Name="victorias" ColumnName="victorias" />
+          <ScalarProperty Name="derrotas" ColumnName="derrotas" />
+          <ScalarProperty Name="empates" ColumnName="empates" />
+          <ScalarProperty Name="foto_url" ColumnName="foto_url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estadistica">
+      <EntityTypeMapping TypeName="CampeonatoModel.Estadistica">
+        <MappingFragment StoreEntitySet="Estadistica">
+          <ScalarProperty Name="idEstadistica" ColumnName="idEstadistica" />
+          <ScalarProperty Name="idJugador" ColumnName="idJugador" />
+          <ScalarProperty Name="idTemporada" ColumnName="idTemporada" />
+          <ScalarProperty Name="partidosJugados" ColumnName="partidosJugados" />
+          <ScalarProperty Name="goles" ColumnName="goles" />
+          <ScalarProperty Name="asistencias" ColumnName="asistencias" />
+          <ScalarProperty Name="tarjetasAmarillas" ColumnName="tarjetasAmarillas" />
+          <ScalarProperty Name="tarjetasRojas" ColumnName="tarjetasRojas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Info_Equipo">
+      <EntityTypeMapping TypeName="CampeonatoModel.Info_Equipo">
+        <MappingFragment StoreEntitySet="Info_Equipo">
+          <ScalarProperty Name="idEquipo" ColumnName="idEquipo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="direccionEstadio" ColumnName="direccionEstadio" />
+          <ScalarProperty Name="entrenador" ColumnName="entrenador" />
+          <ScalarProperty Name="añoFundacion" ColumnName="añoFundacion" />
+          <ScalarProperty Name="capitan" ColumnName="capitan" />
+          <ScalarProperty Name="titulosGanados" ColumnName="titulosGanados" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jugadores">
+      <EntityTypeMapping TypeName="CampeonatoModel.Jugadores">
+        <MappingFragment StoreEntitySet="Jugadores">
+          <ScalarProperty Name="idJugador" ColumnName="idJugador" />
+          <ScalarProperty Name="idEstadistica" ColumnName="idEstadistica" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="edad" ColumnName="edad" />
+          <ScalarProperty Name="numero_camiseta" ColumnName="numero_camiseta" />
+          <ScalarProperty Name="posicion" ColumnName="posicion" />
+          <ScalarProperty Name="foto_url" ColumnName="foto_url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Temporada">
+      <EntityTypeMapping TypeName="CampeonatoModel.Temporada">
+        <MappingFragment StoreEntitySet="Temporada">
+          <ScalarProperty Name="idTemporada" ColumnName="idTemporada" />
+          <ScalarProperty Name="idEstadistica" ColumnName="idEstadistica" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

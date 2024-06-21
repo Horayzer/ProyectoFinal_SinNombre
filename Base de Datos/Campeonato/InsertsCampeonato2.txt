@@ -1,0 +1,85 @@
+use Campeonato;
+
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (1, 'Miguel', 'Fernández', 27, 7, 'Mediocampista', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (2, 'Juan', 'Pérez', 22, 11, 'Defensa', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (3, 'Luis', 'Rodríguez', 25, 9, 'Delantero', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (4, 'José', 'Martínez', 23, 8, 'Mediocampista', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (5, 'Andrés', 'Sánchez', 28, 14, 'Defensa', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (6, 'Pedro', 'López', 26, 6, 'Mediocampista', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (7, 'Manuel', 'García', 30, 4, 'Defensa', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (8, 'Fernando', 'Hernández', 21, 12, 'Delantero', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (9, 'Jorge', 'Ramírez', 29, 3, 'Defensa', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (10, 'Raúl', 'Torres', 24, 5, 'Mediocampista', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (11, 'Alberto', 'Flores', 27, 2, 'Defensa', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (12, 'Antonio', 'Díaz', 22, 18, 'Delantero', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (13, 'Enrique', 'Morales', 25, 15, 'Mediocampista', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (14, 'Alejandro', 'Ortega', 23, 13, 'Delantero', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (15, 'Ricardo', 'Vega', 28, 16, 'Defensa', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (16, 'Sebastián', 'Navarro', 26, 17, 'Mediocampista', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (17, 'Hugo', 'Rojas', 30, 19, 'Defensa', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (18, 'Sergio', 'Iglesias', 21, 20, 'Delantero', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (19, 'Ramón', 'Castillo', 29, 1, 'Portero', 'https://n9.cl/qhovq');
+INSERT INTO Jugadores (idEstadistica, nombre, apellido, edad, numero_camiseta, posicion, foto_url) VALUES (20, 'Carlos', 'Gómez', 24, 10, 'Delantero', 'https://n9.cl/qhovq');
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+INSERT INTO Temporada (idTemporada, idEstadistica, nombre) VALUES (2023, 1, 'Verano');
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (1, 2023, 30, 10, 5, 2, 0);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (2, 2023, 28, 7, 8, 3, 1);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (3, 2023, 25, 9, 6, 1, 0);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (4, 2023, 32, 12, 4, 4, 0);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (5, 2023, 27, 5, 10, 2, 1);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (6, 2023, 29, 8, 7, 3, 0);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (7, 2023, 31, 6, 9, 1, 1);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (8, 2023, 26, 11, 3, 2, 0);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (9, 2023, 30, 13, 5, 4, 1);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (10, 2023, 28, 7, 6, 3, 0);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (11, 2023, 32, 5, 10, 1, 1);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (12, 2023, 29, 8, 7, 2, 0);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (13, 2023, 26, 9, 4, 3, 1);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (14, 2023, 30, 10, 6, 4, 0);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (15, 2023, 28, 7, 9, 2, 1);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (16, 2023, 27, 12, 5, 1, 0);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (17, 2023, 31, 11, 4, 3, 1);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (18, 2023, 26, 6, 8, 2, 0);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (19, 2023, 30, 9, 7, 4, 1);
+INSERT INTO Estadistica (idJugador, idTemporada, partidosJugados, goles, asistencias, tarjetasAmarillas, tarjetasRojas) VALUES (20, 2023, 28, 5, 6, 3, 0);
+-------------------------------------------------------------------------
+-------------------------------------------------------------------------
+INSERT INTO Categorias (idJugador, nombre) VALUES (101, 'Sub-10');
+INSERT INTO Categorias (idJugador, nombre) VALUES (102, 'Sub-12');
+INSERT INTO Categorias (idJugador, nombre) VALUES (103, 'Sub-14');
+INSERT INTO Categorias (idJugador, nombre) VALUES (104, 'Sub-16');
+INSERT INTO Categorias (idJugador, nombre) VALUES (105, 'Sub-18');
+INSERT INTO Categorias (idJugador, nombre) VALUES (106, 'Sub-20');
+INSERT INTO Categorias (idJugador, nombre) VALUES (107, 'Juvenil');
+INSERT INTO Categorias (idJugador, nombre) VALUES (108, 'Amateur');
+INSERT INTO Categorias (idJugador, nombre) VALUES (109, 'Profesional');
+INSERT INTO Categorias (idJugador, nombre) VALUES (110, 'Femenino Sub-10');
+INSERT INTO Categorias (idJugador, nombre) VALUES (111, 'Femenino Sub-12');
+INSERT INTO Categorias (idJugador, nombre) VALUES (112, 'Femenino Sub-14');
+INSERT INTO Categorias (idJugador, nombre) VALUES (113, 'Femenino Sub-16');
+INSERT INTO Categorias (idJugador, nombre) VALUES (114, 'Femenino Sub-18');
+INSERT INTO Categorias (idJugador, nombre) VALUES (115, 'Femenino Sub-20');
+INSERT INTO Categorias (idJugador, nombre) VALUES (116, 'Femenino Juvenil');
+INSERT INTO Categorias (idJugador, nombre) VALUES (117, 'Femenino Amateur');
+INSERT INTO Categorias (idJugador, nombre) VALUES (118, 'Femenino Profesional');
+INSERT INTO Categorias (idJugador, nombre) VALUES (119, 'Veteranos');
+INSERT INTO Categorias (idJugador, nombre) VALUES (120, 'Máster');
+--------------------------------------------------------------------------
+INSERT INTO [Campeonato].[dbo].[Director_Tecnico] 
+  ([id_Categoria], [nombre], [apellido], [nacionalidad], [titulosGanados], [victorias], [derrotas], [empates], [foto_url])
+VALUES 
+  (41, 'David', 'Navarro', 'Quito', 3, 50, 20, 10, 'https://n9.cl/qhovq');
+
+
+----------------------------------------------------------------------
+INSERT INTO Info_Equipo VALUES ('Dep. Vicentina', 'Vicentina, Quito', 'Marco Polo', 2020, 'Pedrito Palotes', 7);
+
+Select * from Director_Tecnico;
+Select * from Info_Equipo;
+Select * from Categorias;
+Select * from Jugadores;
+Select * from Estadistica;
+Select * from Temporada;

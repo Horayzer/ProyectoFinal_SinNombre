@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ballenitaModelStoreContainer" CdmEntityContainer="ballenitaEntities">
+    <EntitySetMapping Name="CategoriaEquipo">
+      <EntityTypeMapping TypeName="ballenitaModel.CategoriaEquipo">
+        <MappingFragment StoreEntitySet="CategoriaEquipo">
+          <ScalarProperty Name="ID_Categoria" ColumnName="ID_Categoria" />
+          <ScalarProperty Name="Nombre_Categoria" ColumnName="Nombre_Categoria" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Fundacion" ColumnName="Fundacion" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Estadio" ColumnName="Estadio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entrenador">
+      <EntityTypeMapping TypeName="ballenitaModel.Entrenador">
+        <MappingFragment StoreEntitySet="Entrenador">
+          <ScalarProperty Name="ID_Entrenador" ColumnName="ID_Entrenador" />
+          <ScalarProperty Name="Nombre_Entrenador" ColumnName="Nombre_Entrenador" />
+          <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
+          <ScalarProperty Name="ID_Categoria" ColumnName="ID_Categoria" />
+          <ScalarProperty Name="Foto_Entrenador_URL" ColumnName="Foto_Entrenador_URL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jugador">
+      <EntityTypeMapping TypeName="ballenitaModel.Jugador">
+        <MappingFragment StoreEntitySet="Jugador">
+          <ScalarProperty Name="ID_Jugador" ColumnName="ID_Jugador" />
+          <ScalarProperty Name="Nombre_Jugador" ColumnName="Nombre_Jugador" />
+          <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+          <ScalarProperty Name="Fecha_Nacimiento" ColumnName="Fecha_Nacimiento" />
+          <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
+          <ScalarProperty Name="ID_Categoria" ColumnName="ID_Categoria" />
+          <ScalarProperty Name="Foto_Jugador_URL" ColumnName="Foto_Jugador_URL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JugadorPartido">
+      <EntityTypeMapping TypeName="ballenitaModel.JugadorPartido">
+        <MappingFragment StoreEntitySet="JugadorPartido">
+          <ScalarProperty Name="ID_Jugador" ColumnName="ID_Jugador" />
+          <ScalarProperty Name="ID_Partido" ColumnName="ID_Partido" />
+          <ScalarProperty Name="Goles" ColumnName="Goles" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Partido">
+      <EntityTypeMapping TypeName="ballenitaModel.Partido">
+        <MappingFragment StoreEntitySet="Partido">
+          <ScalarProperty Name="ID_Partido" ColumnName="ID_Partido" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="Estadio" ColumnName="Estadio" />
+          <ScalarProperty Name="Resultado" ColumnName="Resultado" />
+          <ScalarProperty Name="ID_Equipo" ColumnName="ID_Equipo" />
+          <ScalarProperty Name="Es_Local" ColumnName="Es_Local" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patrocinador">
+      <EntityTypeMapping TypeName="ballenitaModel.Patrocinador">
+        <MappingFragment StoreEntitySet="Patrocinador">
+          <ScalarProperty Name="ID_Patrocinador" ColumnName="ID_Patrocinador" />
+          <ScalarProperty Name="Nombre_Patrocinador" ColumnName="Nombre_Patrocinador" />
+          <ScalarProperty Name="Industria" ColumnName="Industria" />
+          <ScalarProperty Name="ID_Categoria" ColumnName="ID_Categoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
