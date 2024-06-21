@@ -1,0 +1,18 @@
+C:\Users\Mario Vaca\Documents\6to\Integración de Sistemas\ProyectoFinal\EBS\Datos\Datos\bin\Debug\Datos.dll
+C:\Users\Mario Vaca\Documents\6to\Integración de Sistemas\ProyectoFinal\EBS\Datos\Datos\bin\Debug\Datos.pdb
+C:\Users\Mario Vaca\Documents\6to\Integración de Sistemas\ProyectoFinal\EBS\Datos\Datos\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Mario Vaca\Documents\6to\Integración de Sistemas\ProyectoFinal\EBS\Datos\Datos\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Mario Vaca\Documents\6to\Integración de Sistemas\ProyectoFinal\EBS\Datos\Datos\obj\Debug\Datos.csproj.AssemblyReference.cache
+C:\Users\Mario Vaca\Documents\6to\Integración de Sistemas\ProyectoFinal\EBS\Datos\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\Users\Mario Vaca\Documents\6to\Integración de Sistemas\ProyectoFinal\EBS\Datos\Datos\obj\Debug\Datos.csproj.Up2Date
+C:\Users\Mario Vaca\Documents\6to\Integración de Sistemas\ProyectoFinal\EBS\Datos\Datos\obj\Debug\Datos.dll
+C:\Users\Mario Vaca\Documents\6to\Integración de Sistemas\ProyectoFinal\EBS\Datos\Datos\obj\Debug\Datos.pdb
+C:\Users\Burby\Downloads\ProyectoFinal\ProyectoFinal\EBS\Datos\Datos\obj\Debug\Datos.csproj.AssemblyReference.cache
+C:\Users\Burby\Downloads\ProyectoFinal\ProyectoFinal\EBS\Datos\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\Users\Burby\Downloads\ProyectoFinal\ProyectoFinal\EBS\Datos\Datos\obj\Debug\Datos.dll
+C:\Users\Burby\Downloads\ProyectoFinal\ProyectoFinal\EBS\Datos\Datos\obj\Debug\Datos.pdb
+C:\Users\Burby\Downloads\ProyectoFinal\ProyectoFinal\EBS\Datos\Datos\bin\Debug\Datos.dll
+C:\Users\Burby\Downloads\ProyectoFinal\ProyectoFinal\EBS\Datos\Datos\bin\Debug\Datos.pdb
+C:\Users\Burby\Downloads\ProyectoFinal\ProyectoFinal\EBS\Datos\Datos\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Burby\Downloads\ProyectoFinal\ProyectoFinal\EBS\Datos\Datos\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Burby\Downloads\ProyectoFinal\ProyectoFinal\EBS\Datos\Datos\obj\Debug\Datos.csproj.Up2Date

@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="JugadoresLista">
+        <s:complexType />
+      </s:element>
+      <s:element name="JugadoresListaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JugadoresListaResult" type="tns:ArrayOfJugadorDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfJugadorDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="JugadorDTO" nillable="true" type="tns:JugadorDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="JugadorDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Posicion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Edad" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="foto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Equipo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="JugadoresListaByNombre">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JugadoresListaByNombreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JugadoresListaByNombreResult" type="tns:ArrayOfJugadorDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JugadoresAgregar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jugador" type="tns:JugadorDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JugadoresAgregarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JugadoresAgregarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JugadoresActualizar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="jugador" type="tns:JugadorDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JugadoresActualizarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JugadoresActualizarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JugadoresEliminar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idJugador" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="equipo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JugadoresEliminarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JugadoresEliminarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EntrenadoresLista">
+        <s:complexType />
+      </s:element>
+      <s:element name="EntrenadoresListaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EntrenadoresListaResult" type="tns:ArrayOfEntrenadorDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEntrenadorDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EntrenadorDTO" nillable="true" type="tns:EntrenadorDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EntrenadorDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nacionalidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Foto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Equipo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EntrenadoresListaByNombre">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EntrenadoresListaByNombreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EntrenadoresListaByNombreResult" type="tns:ArrayOfEntrenadorDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EntrenadorAgregar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entrenador" type="tns:EntrenadorDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EntrenadorAgregarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EntrenadorAgregarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EntrenadoresActualizar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entrenador" type="tns:EntrenadorDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EntrenadoresActualizarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EntrenadoresActualizarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EntrenadoresEliminar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEntrenador" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="equipo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EntrenadoresEliminarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EntrenadoresEliminarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JugadoresListaPorEquipo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="equipo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JugadoresListaPorEquipoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JugadoresListaPorEquipoResult" type="tns:ArrayOfJugadorDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarEquipos">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListarEquiposResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarEquiposResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerJugadorPorId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idJugador" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerJugadorPorIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerJugadorPorIdResult" type="tns:JugadorDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="JugadoresListaSoapIn">
+    <wsdl:part name="parameters" element="tns:JugadoresLista" />
+  </wsdl:message>
+  <wsdl:message name="JugadoresListaSoapOut">
+    <wsdl:part name="parameters" element="tns:JugadoresListaResponse" />
+  </wsdl:message>
+  <wsdl:message name="JugadoresListaByNombreSoapIn">
+    <wsdl:part name="parameters" element="tns:JugadoresListaByNombre" />
+  </wsdl:message>
+  <wsdl:message name="JugadoresListaByNombreSoapOut">
+    <wsdl:part name="parameters" element="tns:JugadoresListaByNombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="JugadoresAgregarSoapIn">
+    <wsdl:part name="parameters" element="tns:JugadoresAgregar" />
+  </wsdl:message>
+  <wsdl:message name="JugadoresAgregarSoapOut">
+    <wsdl:part name="parameters" element="tns:JugadoresAgregarResponse" />
+  </wsdl:message>
+  <wsdl:message name="JugadoresActualizarSoapIn">
+    <wsdl:part name="parameters" element="tns:JugadoresActualizar" />
+  </wsdl:message>
+  <wsdl:message name="JugadoresActualizarSoapOut">
+    <wsdl:part name="parameters" element="tns:JugadoresActualizarResponse" />
+  </wsdl:message>
+  <wsdl:message name="JugadoresEliminarSoapIn">
+    <wsdl:part name="parameters" element="tns:JugadoresEliminar" />
+  </wsdl:message>
+  <wsdl:message name="JugadoresEliminarSoapOut">
+    <wsdl:part name="parameters" element="tns:JugadoresEliminarResponse" />
+  </wsdl:message>
+  <wsdl:message name="EntrenadoresListaSoapIn">
+    <wsdl:part name="parameters" element="tns:EntrenadoresLista" />
+  </wsdl:message>
+  <wsdl:message name="EntrenadoresListaSoapOut">
+    <wsdl:part name="parameters" element="tns:EntrenadoresListaResponse" />
+  </wsdl:message>
+  <wsdl:message name="EntrenadoresListaByNombreSoapIn">
+    <wsdl:part name="parameters" element="tns:EntrenadoresListaByNombre" />
+  </wsdl:message>
+  <wsdl:message name="EntrenadoresListaByNombreSoapOut">
+    <wsdl:part name="parameters" element="tns:EntrenadoresListaByNombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="EntrenadorAgregarSoapIn">
+    <wsdl:part name="parameters" element="tns:EntrenadorAgregar" />
+  </wsdl:message>
+  <wsdl:message name="EntrenadorAgregarSoapOut">
+    <wsdl:part name="parameters" element="tns:EntrenadorAgregarResponse" />
+  </wsdl:message>
+  <wsdl:message name="EntrenadoresActualizarSoapIn">
+    <wsdl:part name="parameters" element="tns:EntrenadoresActualizar" />
+  </wsdl:message>
+  <wsdl:message name="EntrenadoresActualizarSoapOut">
+    <wsdl:part name="parameters" element="tns:EntrenadoresActualizarResponse" />
+  </wsdl:message>
+  <wsdl:message name="EntrenadoresEliminarSoapIn">
+    <wsdl:part name="parameters" element="tns:EntrenadoresEliminar" />
+  </wsdl:message>
+  <wsdl:message name="EntrenadoresEliminarSoapOut">
+    <wsdl:part name="parameters" element="tns:EntrenadoresEliminarResponse" />
+  </wsdl:message>
+  <wsdl:message name="JugadoresListaPorEquipoSoapIn">
+    <wsdl:part name="parameters" element="tns:JugadoresListaPorEquipo" />
+  </wsdl:message>
+  <wsdl:message name="JugadoresListaPorEquipoSoapOut">
+    <wsdl:part name="parameters" element="tns:JugadoresListaPorEquipoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarEquiposSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarEquipos" />
+  </wsdl:message>
+  <wsdl:message name="ListarEquiposSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarEquiposResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerJugadorPorIdSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerJugadorPorId" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerJugadorPorIdSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerJugadorPorIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServicioFutbolSoap">
+    <wsdl:operation name="JugadoresLista">
+      <wsdl:input message="tns:JugadoresListaSoapIn" />
+      <wsdl:output message="tns:JugadoresListaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JugadoresListaByNombre">
+      <wsdl:input message="tns:JugadoresListaByNombreSoapIn" />
+      <wsdl:output message="tns:JugadoresListaByNombreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JugadoresAgregar">
+      <wsdl:input message="tns:JugadoresAgregarSoapIn" />
+      <wsdl:output message="tns:JugadoresAgregarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JugadoresActualizar">
+      <wsdl:input message="tns:JugadoresActualizarSoapIn" />
+      <wsdl:output message="tns:JugadoresActualizarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JugadoresEliminar">
+      <wsdl:input message="tns:JugadoresEliminarSoapIn" />
+      <wsdl:output message="tns:JugadoresEliminarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EntrenadoresLista">
+      <wsdl:input message="tns:EntrenadoresListaSoapIn" />
+      <wsdl:output message="tns:EntrenadoresListaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EntrenadoresListaByNombre">
+      <wsdl:input message="tns:EntrenadoresListaByNombreSoapIn" />
+      <wsdl:output message="tns:EntrenadoresListaByNombreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EntrenadorAgregar">
+      <wsdl:input message="tns:EntrenadorAgregarSoapIn" />
+      <wsdl:output message="tns:EntrenadorAgregarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EntrenadoresActualizar">
+      <wsdl:input message="tns:EntrenadoresActualizarSoapIn" />
+      <wsdl:output message="tns:EntrenadoresActualizarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EntrenadoresEliminar">
+      <wsdl:input message="tns:EntrenadoresEliminarSoapIn" />
+      <wsdl:output message="tns:EntrenadoresEliminarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JugadoresListaPorEquipo">
+      <wsdl:input message="tns:JugadoresListaPorEquipoSoapIn" />
+      <wsdl:output message="tns:JugadoresListaPorEquipoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarEquipos">
+      <wsdl:input message="tns:ListarEquiposSoapIn" />
+      <wsdl:output message="tns:ListarEquiposSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerJugadorPorId">
+      <wsdl:input message="tns:ObtenerJugadorPorIdSoapIn" />
+      <wsdl:output message="tns:ObtenerJugadorPorIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicioFutbolSoap" type="tns:ServicioFutbolSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="JugadoresLista">
+      <soap:operation soapAction="http://tempuri.org/JugadoresLista" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JugadoresListaByNombre">
+      <soap:operation soapAction="http://tempuri.org/JugadoresListaByNombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JugadoresAgregar">
+      <soap:operation soapAction="http://tempuri.org/JugadoresAgregar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JugadoresActualizar">
+      <soap:operation soapAction="http://tempuri.org/JugadoresActualizar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JugadoresEliminar">
+      <soap:operation soapAction="http://tempuri.org/JugadoresEliminar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EntrenadoresLista">
+      <soap:operation soapAction="http://tempuri.org/EntrenadoresLista" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EntrenadoresListaByNombre">
+      <soap:operation soapAction="http://tempuri.org/EntrenadoresListaByNombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EntrenadorAgregar">
+      <soap:operation soapAction="http://tempuri.org/EntrenadorAgregar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EntrenadoresActualizar">
+      <soap:operation soapAction="http://tempuri.org/EntrenadoresActualizar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EntrenadoresEliminar">
+      <soap:operation soapAction="http://tempuri.org/EntrenadoresEliminar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JugadoresListaPorEquipo">
+      <soap:operation soapAction="http://tempuri.org/JugadoresListaPorEquipo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEquipos">
+      <soap:operation soapAction="http://tempuri.org/ListarEquipos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerJugadorPorId">
+      <soap:operation soapAction="http://tempuri.org/ObtenerJugadorPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicioFutbolSoap12" type="tns:ServicioFutbolSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="JugadoresLista">
+      <soap12:operation soapAction="http://tempuri.org/JugadoresLista" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JugadoresListaByNombre">
+      <soap12:operation soapAction="http://tempuri.org/JugadoresListaByNombre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JugadoresAgregar">
+      <soap12:operation soapAction="http://tempuri.org/JugadoresAgregar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JugadoresActualizar">
+      <soap12:operation soapAction="http://tempuri.org/JugadoresActualizar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JugadoresEliminar">
+      <soap12:operation soapAction="http://tempuri.org/JugadoresEliminar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EntrenadoresLista">
+      <soap12:operation soapAction="http://tempuri.org/EntrenadoresLista" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EntrenadoresListaByNombre">
+      <soap12:operation soapAction="http://tempuri.org/EntrenadoresListaByNombre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EntrenadorAgregar">
+      <soap12:operation soapAction="http://tempuri.org/EntrenadorAgregar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EntrenadoresActualizar">
+      <soap12:operation soapAction="http://tempuri.org/EntrenadoresActualizar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EntrenadoresEliminar">
+      <soap12:operation soapAction="http://tempuri.org/EntrenadoresEliminar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JugadoresListaPorEquipo">
+      <soap12:operation soapAction="http://tempuri.org/JugadoresListaPorEquipo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEquipos">
+      <soap12:operation soapAction="http://tempuri.org/ListarEquipos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerJugadorPorId">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerJugadorPorId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioFutbol">
+    <wsdl:port name="ServicioFutbolSoap" binding="tns:ServicioFutbolSoap">
+      <soap:address location="https://localhost:44365/ServicioFutbol.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServicioFutbolSoap12" binding="tns:ServicioFutbolSoap12">
+      <soap12:address location="https://localhost:44365/ServicioFutbol.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
